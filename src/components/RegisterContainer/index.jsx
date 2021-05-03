@@ -1,23 +1,14 @@
 import React, { useState } from "react";
 import { firebaseInstance } from "../../config/firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router-dom";
 
-const LoginContainer = () => {
+const RegisterContainer = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [error, setError] = useState(null);
   const history = useHistory();
 
   const handleLoginSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      await firebaseInstance.auth().signInWithEmailAndPassword(email, password);
-    } catch (error) {
-      setError(error.message);
-    }
-  };
-  const handleRegisterSubmit = async (event) => {
     event.preventDefault();
     try {
       await firebaseInstance
@@ -31,7 +22,7 @@ const LoginContainer = () => {
 
   return (
     <>
-      <h1>Sign in</h1>
+      <h1>Create account</h1>
       <form onSubmit={handleLoginSubmit()}>
         <input
           type="email"
@@ -53,11 +44,11 @@ const LoginContainer = () => {
       </form>
       <button onClick={handleLoginSubmit}>Submit</button>
       <p>
-        New to GoodBois? Create an account <a href="/register">here</a>
+        Already have an account? Sign in <a href="/login">here</a>
       </p>
       {error && <p>Error: {error}</p>}
     </>
   );
 };
 
-export default LoginContainer;
+export default RegisterContainer;

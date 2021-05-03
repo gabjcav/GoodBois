@@ -1,10 +1,33 @@
 import React from "react";
 import styled from "styled-components";
+import { firebaseInstance } from "../../config/firebase";
+import { useHistory } from "react-router-dom";
+import { useAuth } from "../../utils/context";
 
 const ProfileContainer = () => {
+  const history = useHistory();
+  const { user } = useAuth();
+
+  const handleSignout = async () => {
+    await firebaseInstance.auth().signOut();
+    history.push("/");
+  };
+
+  const handleRedirect = () => {
+    history.push("login");
+  };
+
   return (
     <ProfileStyle>
       <h1>Profile</h1>
+      {user ? (
+        <button onClick={handleSignout}>Sign Out</button>
+      ) : (
+        <>
+          <p>You are not signed in!</p>
+          <button onClick={handleRedirect}>Sign in</button>
+        </>
+      )}
     </ProfileStyle>
   );
 };
