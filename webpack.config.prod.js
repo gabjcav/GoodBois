@@ -15,7 +15,7 @@ module.exports = () => {
     plugins: [
       new Dotenv({
         path: './.production.env',
-        systemvars: true
+        
       }),
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
