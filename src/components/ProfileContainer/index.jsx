@@ -16,13 +16,17 @@ const ProfileContainer = () => {
   const handleRedirect = () => {
     history.push("login");
   };
-
+  console.log("user", user);
   return (
     <ProfileStyle>
       <h1>Profile</h1>
-      {user ? (
-        <button onClick={handleSignout}>Sign Out</button>
-      ) : (
+      {user && (
+        <>
+          {user.email}
+          <button onClick={handleSignout}>Sign Out</button>
+        </>
+      )}
+      {!user && (
         <>
           <p>You are not signed in!</p>
           <button onClick={handleRedirect}>Sign in</button>

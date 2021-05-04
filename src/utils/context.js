@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState, useContext } from 'react'
 import { firebaseInstance } from '../config/firebase'
 import nookies from 'nookies'
-
+import React from 'react'
 const AuthContext = createContext({ user: null })
 
 export function AuthProvider({ children }) {

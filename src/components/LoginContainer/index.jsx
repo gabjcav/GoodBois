@@ -16,23 +16,13 @@ const LoginContainer = () => {
     } catch (error) {
       setError(error.message);
     }
-  };
-  const handleRegisterSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      await firebaseInstance
-        .auth()
-        .createUserWithEmailAndPassword(email, password);
-    } catch (error) {
-      setError(error.message);
-    }
     history.push("/profile");
   };
 
   return (
     <>
       <h1>Sign in</h1>
-      <form onSubmit={handleLoginSubmit()}>
+      <form>
         <input
           type="email"
           required

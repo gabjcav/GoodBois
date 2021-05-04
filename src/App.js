@@ -6,15 +6,19 @@ import NavBar from "./components/NavBar";
 import LoginContainer from "./components/LoginContainer";
 import RegisterContainer from "./components/RegisterContainer";
 import GlobalStyle from "./components/GlobalStyle";
+import { AuthProvider } from "./utils/context";
 function App() {
   return (
     <>
       <GlobalStyle />
       <Router>
-        <Route path="/" exact component={HomeContainer} />
-        <Route path="/profile" component={ProfileContainer} />
-        <Route path="/login" component={LoginContainer} />
-        <Route path="/register" component={RegisterContainer} />
+        <AuthProvider>
+          <NavBar />
+          <Route path="/" exact component={HomeContainer} />
+          <Route path="/profile" component={ProfileContainer} />
+          <Route path="/login" component={LoginContainer} />
+          <Route path="/register" component={RegisterContainer} />
+        </AuthProvider>
       </Router>
     </>
   );
