@@ -35,12 +35,16 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "firebase": "^8.4.3",
     "nookies": "^2.5.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-firebase-hooks": "^3.0.4",
     "react-router-dom": "^5.2.0",
-    "styled-components": "^5.2.3"
+    "styled-components": "^5.2.3",
+    "uuidv4": "^6.2.7"
   }
 }

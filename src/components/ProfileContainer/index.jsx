@@ -36,7 +36,7 @@ const ProfileContainer = () => {
   );
 };
 
-const ProfileStyle = styled.div`
+const ProfileStyle = styled.main`
   height: 100%;
   width: 100%;
   text-align: center;

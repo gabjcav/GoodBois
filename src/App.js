@@ -5,6 +5,8 @@ import HomeContainer from "./components/HomeContainer";
 import NavBar from "./components/NavBar";
 import LoginContainer from "./components/LoginContainer";
 import RegisterContainer from "./components/RegisterContainer";
+import NewPostContainer from "./components/NewPostContainer";
+import PostsContainer from "./components/PostsContainer";
 import GlobalStyle from "./components/GlobalStyle";
 import { AuthProvider } from "./utils/context";
 function App() {
@@ -16,7 +18,9 @@ function App() {
           <NavBar />
           <Route path="/" exact component={HomeContainer} />
           <Route path="/profile" component={ProfileContainer} />
+          <Route path="/newpost" component={NewPostContainer} />
           <Route path="/login" component={LoginContainer} />
+          <Route path="/posts" component={PostsContainer} />
           <Route path="/register" component={RegisterContainer} />
         </AuthProvider>
       </Router>
