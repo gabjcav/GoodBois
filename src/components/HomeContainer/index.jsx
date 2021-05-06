@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../utils/context";
+import MainContainer from "../MainContainer";
+
 const HomeContainer = () => {
   const history = useHistory();
   const { isAuthenticated, user } = useAuth();
@@ -12,20 +14,22 @@ const HomeContainer = () => {
     history.push("profile");
   };
   return (
-    <HomeStyle>
-      <h1>GoodBois</h1>
-      {!isAuthenticated && (
-        <button onClick={handleRedirectLogin}>Sign in</button>
-      )}
-      {isAuthenticated && (
-        <button onClick={handleRedirectProfile}>Profile</button>
-      )}
-    </HomeStyle>
+    <MainContainer>
+      <HomeStyle>
+        <h1>GoodBois</h1>
+        {!isAuthenticated && (
+          <button onClick={handleRedirectLogin}>Sign in</button>
+        )}
+        {isAuthenticated && (
+          <button onClick={handleRedirectProfile}>Profile</button>
+        )}
+      </HomeStyle>
+    </MainContainer>
   );
 };
 
-const HomeStyle = styled.main`
-  height: 100vh;
+const HomeStyle = styled.section`
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 10%;
@@ -33,9 +37,6 @@ const HomeStyle = styled.main`
   justify-content: center;
   align-items: center;
   width: 100%;
-  h1 {
-    font-family: "Pacifico", sans-serif;
-  }
   button {
     width: 20%;
     height: 5%;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { firebaseInstance } from "../../config/firebase";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../utils/context";
-
+import MainContainer from "../MainContainer";
 const ProfileContainer = () => {
   const history = useHistory();
   const { user } = useAuth();
@@ -18,21 +18,23 @@ const ProfileContainer = () => {
   };
   console.log("user", user);
   return (
-    <ProfileStyle>
+    <MainContainer>
       <h1>Profile</h1>
-      {user && (
-        <>
-          {user.email}
-          <button onClick={handleSignout}>Sign Out</button>
-        </>
-      )}
-      {!user && (
-        <>
-          <p>You are not signed in!</p>
-          <button onClick={handleRedirect}>Sign in</button>
-        </>
-      )}
-    </ProfileStyle>
+      <ProfileStyle>
+        {user && (
+          <>
+            {user.email}
+            <button onClick={handleSignout}>Sign Out</button>
+          </>
+        )}
+        {!user && (
+          <>
+            <p>You are not signed in!</p>
+            <button onClick={handleRedirect}>Sign in</button>
+          </>
+        )}
+      </ProfileStyle>
+    </MainContainer>
   );
 };
 

@@ -43,7 +43,7 @@ const LoginContainer = () => {
       </form>
       <button onClick={handleLoginSubmit}>Submit</button>
       <p>
-        New to GoodBois? Create an account <a href="/register">here</a>
+        New to GoodBois? Sign up <a href="/register">here</a>.
       </p>
       {error && <p>Error: {error}</p>}
     </>

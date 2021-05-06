@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faPlus,
-  faUser,
-  faPaw,
-} from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import queryFirebase from "../../config/firebase";
-import { firebaseInstance } from "../../config/firebase";
 import { useAuth } from "../../utils/context";
+import { useHistory } from "react-router-dom";
+import MainContainer from "../MainContainer";
+
 const PostsContainer = () => {
   const { user } = useAuth();
   const [posts, setPosts] = useState([]);
   const [fbError, setFbError] = useState(null);
+  const history = useHistory();
 
   useEffect(() => {
     queryFirebase("posts")
@@ -21,34 +19,38 @@ const PostsContainer = () => {
       .catch((error) => setFbError(error));
   }, []);
 
+  const handleRedirect = () => {
+    history.push("/newpost");
+  };
+
   return (
-    <PostsStyle>
-      <h1>Available pets</h1>
+    <MainContainer>
+      <PostsStyle>
+        <h1>Available pets</h1>
 
-      {posts?.map((post) => {
-        const p = post.data();
-        console.log(p);
-        return (
-          <article key={p.id}>
-            <p>Animal type: {p.AnimalType}</p>
-            <p>Breed: {p.Breed}</p>
-            <p>Number of days: {p.NumberOfDays}</p>
-            <p>City: {p.City}</p>
-            <button>Ask to sit</button>
-          </article>
-        );
-      })}
+        {posts?.map((post) => {
+          const p = post.data();
+          console.log(p);
+          return (
+            <article key={p.id}>
+              <p>Animal type: {p.AnimalType}</p>
+              <p>Breed: {p.Breed}</p>
+              <p>Number of days: {p.NumberOfDays}</p>
+              <p>City: {p.City}</p>
+              <button>Ask to sit</button>
+            </article>
+          );
+        })}
 
-      <div>
-        <a href="/newpost">
+        <button onClick={handleRedirect}>
           <FontAwesomeIcon icon={faPlus} />
-        </a>
-      </div>
-    </PostsStyle>
+        </button>
+      </PostsStyle>
+    </MainContainer>
   );
 };
 
-const PostsStyle = styled.main`
+const PostsStyle = styled.section`
   padding: 10%;
   display: flex;
   flex-direction: column;
@@ -67,16 +69,21 @@ const PostsStyle = styled.main`
     color: white;
     font-size: 1.3rem;
     box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
-
     button {
+      border-radius: 5px;
+      background-color: white;
+      color: black;
+      width: 80px;
+      margin-top: 8%;
     }
   }
 
-  div {
+  button {
     background-color: var(--orange-background-color);
     border-radius: 50%;
     width: 50px;
     height: 50px;
+    border: none;
     display: flex;
     justify-content: center;
     align-items: center;
