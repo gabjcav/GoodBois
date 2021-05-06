@@ -39,10 +39,11 @@ const NewPostStyle = styled.main`
     gap: 20px;
     input {
       width: 60vw;
-      padding: 10px;
+      padding: 15px;
       height: 5vh;
+      font-size: 1rem;
       border: 2px solid var(--orange-background-color);
-      border-radius: 2%;
+      border-radius: 10px;
     }
   }
   button {

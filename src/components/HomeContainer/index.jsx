@@ -1,16 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
+import { useAuth } from "../../utils/context";
 const HomeContainer = () => {
   const history = useHistory();
-
-  const handleRedirect = () => {
+  const { isAuthenticated, user } = useAuth();
+  const handleRedirectLogin = () => {
     history.push("login");
+  };
+  const handleRedirectProfile = () => {
+    history.push("profile");
   };
   return (
     <HomeStyle>
       <h1>GoodBois</h1>
-      <button onClick={handleRedirect}>Sign in</button>
+      {!isAuthenticated && (
+        <button onClick={handleRedirectLogin}>Sign in</button>
+      )}
+      {isAuthenticated && (
+        <button onClick={handleRedirectProfile}>Profile</button>
+      )}
     </HomeStyle>
   );
 };
