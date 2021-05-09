@@ -14,7 +14,6 @@ try {
   firebase.initializeApp(firebaseConfig);
   firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
 } catch (error) {
-  // /REGEX/
   if (!/already exists/.test(error.message)) {
     console.error("Firebase error");
   }

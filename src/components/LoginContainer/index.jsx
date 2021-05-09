@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { firebaseInstance } from "../../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router-dom";
+import MainContainer from "../MainContainer";
 
 const LoginContainer = () => {
   const [email, setEmail] = useState(null);
@@ -20,7 +21,7 @@ const LoginContainer = () => {
   };
 
   return (
-    <>
+    <MainContainer>
       <h1>Sign in</h1>
       <form>
         <input
@@ -46,7 +47,7 @@ const LoginContainer = () => {
         New to GoodBois? Sign up <a href="/register">here</a>.
       </p>
       {error && <p>Error: {error}</p>}
-    </>
+    </MainContainer>
   );
 };
 

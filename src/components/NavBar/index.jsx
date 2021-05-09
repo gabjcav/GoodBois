@@ -45,6 +45,8 @@ const NavStyle = styled.nav`
   position: fixed;
   bottom: 0;
   height: 7%;
+  margin-top: 5%;
+  box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
   ul {
     list-style: none;
     display: flex;

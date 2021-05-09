@@ -1,21 +1,67 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import MainContainer from "../MainContainer";
+import { firebaseInstance } from "../../config/firebase";
+import { useHistory } from "react-router-dom";
+import { useAuth } from "../../utils/context";
 
 const NewPostContainer = () => {
+  const history = useHistory();
+
+  const [animalType, setAnimalType] = useState("");
+  const [breed, setBreed] = useState("");
+  const [city, setCity] = useState("");
+  const [numberOfDays, setNumberOfDays] = useState(0);
+
+  console.log({ animalType }, { breed }, { city }, { numberOfDays });
   return (
     <MainContainer>
       <h1>New post</h1>
       <NewPostStyle>
         <form>
-          <input placeholder="Animal type" type="text" />
-          <input placeholder="Breed" type="text" />
-          <input placeholder="City" type="text" />
-          <input placeholder="Number of days" type="number" />
+          <input
+            required
+            onChange={(e) => setAnimalType(e.target.value)}
+            placeholder="Animal type"
+            type="text"
+          />
+          <input
+            required
+            onChange={(e) => setBreed(e.target.value)}
+            placeholder="Breed"
+            type="text"
+          />
+          <input
+            required
+            onChange={(e) => setCity(e.target.value)}
+            placeholder="City"
+            type="text"
+          />
+          <input
+            required
+            onChange={(e) => setNumberOfDays(e.target.value)}
+            placeholder="Number of days"
+            type="number"
+          />
         </form>
-        <button>
+        <button
+          onClick={async () => {
+            await firebaseInstance.firestore().collection("posts").doc().set({
+              AnimalType: animalType,
+              Breed: breed,
+              City: city,
+              NumberOfDays: numberOfDays,
+            });
+            setAnimalType("");
+            setBreed("");
+            setCity("");
+            setNumberOfDays(0);
+
+            history.push("/posts");
+          }}
+        >
           <FontAwesomeIcon icon={faCheck} />
         </button>
       </NewPostStyle>
@@ -24,7 +70,7 @@ const NewPostContainer = () => {
 };
 
 const NewPostStyle = styled.section`
-  height: 70vh;
+  max-height: 70%;
   width: 100%;
   text-align: center;
   display: flex;
@@ -32,6 +78,7 @@ const NewPostStyle = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  overflow-y: auto;
   form {
     margin-top: 10%;
     width: 100%;

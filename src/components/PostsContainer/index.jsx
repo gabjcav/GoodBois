@@ -6,7 +6,7 @@ import queryFirebase from "../../config/firebase";
 import { useAuth } from "../../utils/context";
 import { useHistory } from "react-router-dom";
 import MainContainer from "../MainContainer";
-
+import uuid from "uuid";
 const PostsContainer = () => {
   const { user } = useAuth();
   const [posts, setPosts] = useState([]);
@@ -32,7 +32,7 @@ const PostsContainer = () => {
           const p = post.data();
           console.log(p);
           return (
-            <article key={p.id}>
+            <article key={uuid()}>
               <p>Animal type: {p.AnimalType}</p>
               <p>Breed: {p.Breed}</p>
               <p>Number of days: {p.NumberOfDays}</p>
@@ -41,7 +41,6 @@ const PostsContainer = () => {
             </article>
           );
         })}
-
         <button onClick={handleRedirect}>
           <FontAwesomeIcon icon={faPlus} />
         </button>
@@ -54,12 +53,12 @@ const PostsStyle = styled.section`
   padding: 10%;
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  max-height: 80%;
 
   article {
     background-color: var(--orange-background-color);
     padding: 5%;
-    height: 30%;
+    height: 20%;
     border-radius: 10px;
     margin-top: 10%;
     margin-bottom: 10%;
@@ -69,12 +68,14 @@ const PostsStyle = styled.section`
     color: white;
     font-size: 1.3rem;
     box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
+    z-index: -1;
     button {
       border-radius: 5px;
       background-color: white;
       color: black;
       width: 80px;
       margin-top: 8%;
+      margin-bottom: 5%;
     }
   }
 

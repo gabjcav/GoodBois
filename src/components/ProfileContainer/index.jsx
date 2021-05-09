@@ -23,7 +23,7 @@ const ProfileContainer = () => {
       <ProfileStyle>
         {user && (
           <>
-            {user.email}
+            {user.displayName}
             <button onClick={handleSignout}>Sign Out</button>
           </>
         )}
@@ -38,7 +38,7 @@ const ProfileContainer = () => {
   );
 };
 
-const ProfileStyle = styled.main`
+const ProfileStyle = styled.section`
   height: 100%;
   width: 100%;
   text-align: center;

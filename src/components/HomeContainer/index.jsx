@@ -15,8 +15,8 @@ const HomeContainer = () => {
   };
   return (
     <MainContainer>
+      <h1>GoodBois</h1>
       <HomeStyle>
-        <h1>GoodBois</h1>
         {!isAuthenticated && (
           <button onClick={handleRedirectLogin}>Sign in</button>
         )}
@@ -37,6 +37,7 @@ const HomeStyle = styled.section`
   justify-content: center;
   align-items: center;
   width: 100%;
+
   button {
     width: 20%;
     height: 5%;

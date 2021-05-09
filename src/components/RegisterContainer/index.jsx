@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { firebaseInstance } from "../../config/firebase";
 import { useHistory } from "react-router-dom";
-
+import MainContainer from "../MainContainer";
 const RegisterContainer = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
@@ -21,7 +21,7 @@ const RegisterContainer = () => {
   };
 
   return (
-    <>
+    <MainContainer>
       <h1>Create account</h1>
       <form onSubmit={handleLoginSubmit()}>
         <input
@@ -47,7 +47,7 @@ const RegisterContainer = () => {
         Already have an account? Sign in <a href="/login">here</a>
       </p>
       {error && <p>Error: {error}</p>}
-    </>
+    </MainContainer>
   );
 };
 
