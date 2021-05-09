@@ -61,7 +61,6 @@ const PostsStyle = styled.section`
     height: 20%;
     border-radius: 10px;
     margin-top: 10%;
-    margin-bottom: 10%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -89,7 +88,7 @@ const PostsStyle = styled.section`
     justify-content: center;
     align-items: center;
     color: white;
-    margin: 0 auto;
+    margin: 30px auto;
     text-decoration: none;
     box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
     a {

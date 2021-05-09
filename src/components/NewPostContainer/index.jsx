@@ -9,13 +9,11 @@ import { useAuth } from "../../utils/context";
 
 const NewPostContainer = () => {
   const history = useHistory();
-
   const [animalType, setAnimalType] = useState("");
   const [breed, setBreed] = useState("");
   const [city, setCity] = useState("");
   const [numberOfDays, setNumberOfDays] = useState(0);
-
-  console.log({ animalType }, { breed }, { city }, { numberOfDays });
+  const { isAuthenticated } = useAuth();
   return (
     <MainContainer>
       <h1>New post</h1>
@@ -48,18 +46,22 @@ const NewPostContainer = () => {
         </form>
         <button
           onClick={async () => {
-            await firebaseInstance.firestore().collection("posts").doc().set({
-              AnimalType: animalType,
-              Breed: breed,
-              City: city,
-              NumberOfDays: numberOfDays,
-            });
-            setAnimalType("");
-            setBreed("");
-            setCity("");
-            setNumberOfDays(0);
+            if (!isAuthenticated) {
+              console.log("not logged in");
+            } else {
+              await firebaseInstance.firestore().collection("posts").doc().set({
+                AnimalType: animalType,
+                Breed: breed,
+                City: city,
+                NumberOfDays: numberOfDays,
+              });
+              setAnimalType("");
+              setBreed("");
+              setCity("");
+              setNumberOfDays(0);
 
-            history.push("/posts");
+              history.push("/posts");
+            }
           }}
         >
           <FontAwesomeIcon icon={faCheck} />
