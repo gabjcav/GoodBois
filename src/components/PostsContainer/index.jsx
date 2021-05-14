@@ -6,7 +6,9 @@ import queryFirebase from "../../config/firebase";
 import { useAuth } from "../../utils/context";
 import { useHistory } from "react-router-dom";
 import MainContainer from "../MainContainer";
+import { firebaseInstance } from "../../config/firebase";
 import uuid from "uuid";
+
 const PostsContainer = () => {
   const { user } = useAuth();
   const [posts, setPosts] = useState([]);
@@ -19,29 +21,40 @@ const PostsContainer = () => {
       .catch((error) => setFbError(error));
   }, []);
 
-  const handleRedirect = () => {
+  const handleRedirectNewPost = () => {
+    history.push("/newpost");
+  };
+  const handleRedirectMessage = () => {
     history.push("/newpost");
   };
 
   return (
     <MainContainer>
+      <h1>Available pets</h1>
       <PostsStyle>
-        <h1>Available pets</h1>
-
         {posts?.map((post) => {
           const p = post.data();
-          console.log(p);
+          const postId = post.id;
+
           return (
             <article key={uuid()}>
               <p>Animal type: {p.AnimalType}</p>
               <p>Breed: {p.Breed}</p>
               <p>Number of days: {p.NumberOfDays}</p>
               <p>City: {p.City}</p>
-              <button>Ask to sit</button>
+              <button onClick={handleRedirectMessage}>Ask to sit</button>
+
+              {user.uid === p.UserId ? (
+                <button type="button" onClick={() => console.log(postId)}>
+                  Remove
+                </button>
+              ) : (
+                ""
+              )}
             </article>
           );
         })}
-        <button onClick={handleRedirect}>
+        <button onClick={handleRedirectNewPost}>
           <FontAwesomeIcon icon={faPlus} />
         </button>
       </PostsStyle>
