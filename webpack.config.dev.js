@@ -7,6 +7,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = () => {
   return {
+    
     mode: 'development',
     entry: {
       index: './src/index.js'
@@ -57,6 +58,7 @@ module.exports = () => {
         }
       ],
     },
+
     resolve: {
       extensions: ['*', '.js', '.jsx']
     }

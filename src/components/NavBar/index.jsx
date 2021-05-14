@@ -7,8 +7,11 @@ import {
   faPaw,
   faComments,
 } from "@fortawesome/free-solid-svg-icons";
+import { useAuth } from "../../utils/context";
 
 const NavBar = () => {
+  const { isAuthenticated } = useAuth();
+
   return (
     <NavStyle>
       <ul>
@@ -23,9 +26,16 @@ const NavBar = () => {
           </a>
         </li>
         <li>
-          <a href="/profile">
-            <FontAwesomeIcon icon={faUser} />
-          </a>
+          {isAuthenticated && (
+            <a href="/profile">
+              <FontAwesomeIcon icon={faUser} />
+            </a>
+          )}
+          {!isAuthenticated && (
+            <a href="/login">
+              <FontAwesomeIcon icon={faUser} />
+            </a>
+          )}
         </li>
         <li>
           <a href="/messages">

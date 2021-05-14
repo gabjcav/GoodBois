@@ -13,7 +13,8 @@ const NewPostContainer = () => {
   const [breed, setBreed] = useState("");
   const [city, setCity] = useState("");
   const [numberOfDays, setNumberOfDays] = useState(0);
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user } = useAuth();
+
   return (
     <MainContainer>
       <h1>New post</h1>
@@ -47,13 +48,14 @@ const NewPostContainer = () => {
         <button
           onClick={async () => {
             if (!isAuthenticated) {
-              console.log("not logged in");
+              alert("Sign in to complete");
             } else {
               await firebaseInstance.firestore().collection("posts").doc().set({
                 AnimalType: animalType,
                 Breed: breed,
                 City: city,
                 NumberOfDays: numberOfDays,
+                UserId: user.uid,
               });
               setAnimalType("");
               setBreed("");

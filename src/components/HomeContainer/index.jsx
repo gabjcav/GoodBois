@@ -15,13 +15,13 @@ const HomeContainer = () => {
   };
   return (
     <MainContainer>
-      <h1>GoodBois</h1>
       <HomeStyle>
+        <h1>GoodBois</h1>
         {!isAuthenticated && (
           <button onClick={handleRedirectLogin}>Sign in</button>
         )}
         {isAuthenticated && (
-          <button onClick={handleRedirectProfile}>Profile</button>
+          <button onClick={handleRedirectProfile}>Go to profile</button>
         )}
       </HomeStyle>
     </MainContainer>
@@ -37,15 +37,18 @@ const HomeStyle = styled.section`
   justify-content: center;
   align-items: center;
   width: 100%;
-
+  padding: 50px;
+  margin-top: 50%;
   button {
-    width: 20%;
+    width: 50%;
     height: 5%;
     padding: 10px;
     color: white;
+    font-weight: bold;
+    font-size: 1rem;
     background-color: var(--orange-background-color);
-    border: 2px solid var(--orange-background-color);
     border-radius: 6%;
+    border: none;
     cursor: pointer;
     &:hover {
       border: 2px solid var(--orange-background-color);

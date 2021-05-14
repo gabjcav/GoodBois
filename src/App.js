@@ -8,8 +8,10 @@ import RegisterContainer from "./components/RegisterContainer";
 import NewPostContainer from "./components/NewPostContainer";
 import PostsContainer from "./components/PostsContainer";
 import MessagesContainer from "./components/MessagesContainer";
+import SendMessageContainer from "./components/SendMessageContainer";
 import GlobalStyle from "./components/GlobalStyle";
 import { AuthProvider } from "./utils/context";
+
 function App() {
   return (
     <>
@@ -18,6 +20,7 @@ function App() {
         <AuthProvider>
           <NavBar />
           <Route path="/" exact component={HomeContainer} />
+          <Route path="/newmessage" exact component={SendMessageContainer} />
           <Route path="/profile" component={ProfileContainer} />
           <Route path="/newpost" component={NewPostContainer} />
           <Route path="/messages" component={MessagesContainer} />

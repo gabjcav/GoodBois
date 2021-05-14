@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useAuth } from "../../utils/context";
 import { useHistory } from "react-router-dom";
 import MainContainer from "../MainContainer";
+
 const MessagesContainer = () => {
   const { isAuthenticated, user } = useAuth();
   const history = useHistory();

@@ -17,13 +17,13 @@ const RegisterContainer = () => {
     } catch (error) {
       setError(error.message);
     }
-    history.push("/profile");
+    history.push("/login");
   };
 
   return (
     <MainContainer>
       <h1>Create account</h1>
-      <form onSubmit={handleLoginSubmit()}>
+      <form onSubmit={handleLoginSubmit}>
         <input
           type="email"
           required
@@ -41,8 +41,9 @@ const RegisterContainer = () => {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
+        <button type="submit">Submit</button>
       </form>
-      <button onClick={handleLoginSubmit}>Submit</button>
+
       <p>
         Already have an account? Sign in <a href="/login">here</a>
       </p>
