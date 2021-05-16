@@ -9,6 +9,7 @@ const MainContainer = styled.main`
     min-height: 80%; 
     button{
         box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 3px 0px;
+        cursor: pointer; 
     }
     h1{
         background-color: var(--orange-background-color);

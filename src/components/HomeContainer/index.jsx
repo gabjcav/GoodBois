@@ -38,12 +38,14 @@ const HomeStyle = styled.section`
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  padding: 50px;
+  padding: 30px;
+
   p {
     padding: 10px;
     color: var(--orange-background-color);
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-family: "Patua One", sans-serif;
+    margin-top: 20%;
   }
 
   button {
@@ -52,6 +54,7 @@ const HomeStyle = styled.section`
     padding: 10px;
     color: white;
     font-weight: bold;
+    margin-top: 20%;
     font-size: 1rem;
     background-color: var(--orange-background-color);
     border-radius: 6%;

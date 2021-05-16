@@ -6,8 +6,10 @@ import queryFirebase from "../../config/firebase";
 import { useAuth } from "../../utils/context";
 import { useHistory } from "react-router-dom";
 import MainContainer from "../MainContainer";
+import LoaderContainer from "../LoaderContainer";
 import { firebaseInstance } from "../../config/firebase";
 import uuid from "uuid";
+import Loader from "react-loader-spinner";
 
 const PostsContainer = () => {
   const { user } = useAuth();
@@ -28,9 +30,8 @@ const PostsContainer = () => {
     history.push("/newpost");
   };
 
-  return (
-    <MainContainer>
-      <h1>Available pets</h1>
+  const renderPosts = () => {
+    return (
       <PostsStyle>
         {posts?.map((post) => {
           const p = post.data();
@@ -60,6 +61,27 @@ const PostsContainer = () => {
           <FontAwesomeIcon icon={faPlus} />
         </button>
       </PostsStyle>
+    );
+  };
+
+  const renderSkeleton = () => {
+    return (
+      <LoaderContainer>
+        <Loader
+          type="TailSpin"
+          color="var(--orange-background-color)"
+          height={100}
+          width={100}
+          timeout={3000} //3 secs
+        />
+      </LoaderContainer>
+    );
+  };
+
+  return (
+    <MainContainer>
+      <h1>Available pets</h1>
+      {posts.length === 0 ? renderSkeleton() : renderPosts()}
     </MainContainer>
   );
 };
@@ -104,6 +126,7 @@ const PostsStyle = styled.section`
       width: 80px;
       margin-top: 8%;
       margin-bottom: 5%;
+      cursor: pointer !important;
     }
   }
 

@@ -16,6 +16,9 @@ const ProfileContainer = () => {
   const handleRedirectLogin = () => {
     history.push("login");
   };
+  const handleRedirectMessages = () => {
+    history.push("messages");
+  };
 
   console.log("user", user);
   return (
@@ -26,6 +29,7 @@ const ProfileContainer = () => {
           <div>
             <h2>Welcome back,</h2>
             {user.email}
+            <button onClick={handleRedirectMessages}>Messages</button>
             <button onClick={handleSignout}>Sign Out</button>
           </div>
         )}
