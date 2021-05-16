@@ -24,6 +24,7 @@ const ProfileContainer = () => {
       <ProfileStyle>
         {user && (
           <div>
+            <h2>Welcome back,</h2>
             {user.email}
             <button onClick={handleSignout}>Sign Out</button>
           </div>

@@ -15,8 +15,9 @@ const HomeContainer = () => {
   };
   return (
     <MainContainer>
+      <h1>GoodBois</h1>
       <HomeStyle>
-        <h1>GoodBois</h1>
+        <p>The best place to find sitters for your pets!</p>
         {!isAuthenticated && (
           <button onClick={handleRedirectLogin}>Sign in</button>
         )}
@@ -32,15 +33,21 @@ const HomeStyle = styled.section`
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10%;
+  gap: 20%;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   padding: 50px;
-  margin-top: 50%;
+  p {
+    padding: 10px;
+    color: var(--orange-background-color);
+    font-size: 1.5rem;
+    font-family: "Patua One", sans-serif;
+  }
+
   button {
-    width: 50%;
+    width: 40%;
     height: 5%;
     padding: 10px;
     color: white;

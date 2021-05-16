@@ -12,9 +12,9 @@ const GlobalStyle = createGlobalStyle`
 
 
     :root {
-        --orange-background-color: #fbad50; 
-
-        --button-text-size: 1rem; 
+        --orange-background-color: #fb8250; 
+        --orange-light: #fdb79b; 
+        --yellow-background-color: #fbd850; 
     }
 `
 

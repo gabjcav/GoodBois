@@ -6,7 +6,7 @@ const MainContainer = styled.main`
     display: flex; 
     flex-direction: column; 
     padding: 5%; 
-    
+    min-height: 80%; 
     button{
         box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 3px 0px;
     }
@@ -15,13 +15,18 @@ const MainContainer = styled.main`
         text-align: center; 
         font-size: 2.5rem; 
         width: 100%; 
+        position: fixed; 
+        left: 0; 
+        top: 0; 
         padding: 10px; 
-        border-radius: 4px; 
         margin-bottom: 10%; 
         box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 3px 0px;
         font-family: 'Patua One', sans-serif;
         letter-spacing: 2px;
         color: white; 
+    }
+    section{
+        margin-top: 10%; 
     }
 `
 

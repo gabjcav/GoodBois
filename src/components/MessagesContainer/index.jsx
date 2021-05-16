@@ -29,7 +29,8 @@ const MessagesContainer = () => {
 };
 
 const MessagesStyle = styled.section`
-  margin: 0 auto;
+  background-color: red;
+  margin-top: 50vh;
 `;
 
 export default MessagesContainer;

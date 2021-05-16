@@ -42,15 +42,17 @@ const PostsContainer = () => {
               <p>Breed: {p.Breed}</p>
               <p>Number of days: {p.NumberOfDays}</p>
               <p>City: {p.City}</p>
-              <button onClick={handleRedirectMessage}>Ask to sit</button>
+              <div>
+                <button onClick={handleRedirectMessage}>Message</button>
 
-              {user.uid === p.UserId ? (
-                <button type="button" onClick={() => console.log(postId)}>
-                  Remove
-                </button>
-              ) : (
-                ""
-              )}
+                {user?.uid === p.UserId ? (
+                  <button type="button" onClick={() => console.log(postId)}>
+                    Remove
+                  </button>
+                ) : (
+                  ""
+                )}
+              </div>
             </article>
           );
         })}
@@ -69,7 +71,7 @@ const PostsStyle = styled.section`
   max-height: 80%;
 
   article {
-    background-color: var(--orange-background-color);
+    background-color: var(--orange-light);
     padding: 5%;
     height: 20%;
     border-radius: 10px;
@@ -78,13 +80,27 @@ const PostsStyle = styled.section`
     flex-direction: column;
     justify-content: space-around;
     color: white;
+    border: 2px solid var(--orange-background-color);
     font-size: 1.3rem;
     box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
     z-index: -1;
+    div {
+      display: flex;
+      flex-direction: row;
+    }
+    p {
+      background-color: var(--orange-background-color);
+      padding: 5px;
+      border-radius: 5px;
+      margin-bottom: 2%;
+      text-align: center;
+      box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 4px 0px;
+    }
     button {
       border-radius: 5px;
-      background-color: white;
-      color: black;
+      background-color: var(--orange-background-color);
+      color: white;
+      font-weight: bolder;
       width: 80px;
       margin-top: 8%;
       margin-bottom: 5%;
@@ -103,7 +119,7 @@ const PostsStyle = styled.section`
     color: white;
     margin: 30px auto;
     text-decoration: none;
-    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
+
     a {
       color: white;
     }
