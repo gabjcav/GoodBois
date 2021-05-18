@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlus,
+  faArrowLeft,
+  faCheck,
+} from "@fortawesome/free-solid-svg-icons";
 import queryFirebase from "../../config/firebase";
 import { useAuth } from "../../utils/context";
 import { useHistory } from "react-router-dom";
@@ -97,16 +101,30 @@ const PostsContainer = () => {
 
   const renderMessage = () => {
     return (
-      <div>
-        <h2 style={{ marginTop: "20%" }}>hello</h2>
-        <button
-          onClick={() => {
-            setShowMessage(false);
-          }}
-        >
-          Go back
-        </button>
-      </div>
+      <SendMessageStyle>
+        <h2>Send sitter-request</h2>
+        <textarea
+          placeholder="Write about yourself"
+          cols="30"
+          rows="10"
+        ></textarea>
+        <div>
+          <button
+            onClick={() => {
+              setShowMessage(false);
+            }}
+          >
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </button>
+          <button
+            onClick={() => {
+              setShowMessage(false);
+            }}
+          >
+            <FontAwesomeIcon icon={faCheck} />
+          </button>
+        </div>
+      </SendMessageStyle>
     );
   };
 
@@ -117,6 +135,39 @@ const PostsContainer = () => {
     </MainContainer>
   );
 };
+
+//STYLING FOR SENDING MESSAGE SCREEN
+
+const SendMessageStyle = styled.section`
+  margin-top: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  textarea {
+    min-width: 50%;
+    min-height: 20vh;
+    max-width: 90%;
+    max-height: 50vh;
+    padding: 10px;
+    font-size: 1.5rem;
+  }
+  div {
+    margin: 0 auto;
+    button {
+      border-radius: 5px;
+      color: black;
+      border: none;
+      font-weight: bolder;
+      width: 80px;
+      margin-top: 8%;
+      margin-bottom: 5%;
+      cursor: pointer !important;
+    }
+  }
+`;
+
+//STYLING FOR POSTS (INDIVIDUAL POSTS FOR SINGLE PET)
 
 const PostsStyle = styled.section`
   padding: 5%;
@@ -151,7 +202,7 @@ const PostsStyle = styled.section`
       box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 2px 0px;
     }
 
-    //Message / Remove buttons
+    //Message & Remove button
     button {
       border-radius: 5px;
       color: white;
