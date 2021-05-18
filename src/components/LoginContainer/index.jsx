@@ -58,6 +58,7 @@ const LoginContainer = () => {
 };
 
 const LoginStyle = styled.section`
+  margin-top: 25%;
   form {
     margin: 0 auto;
     height: 50%;
@@ -78,6 +79,8 @@ const LoginStyle = styled.section`
       background-color: var(--orange-background-color);
       border: none;
       color: white;
+      font-size: 1rem;
+      font-weight: bolder;
       border-radius: 5px;
     }
   }

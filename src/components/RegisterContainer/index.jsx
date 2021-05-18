@@ -57,6 +57,7 @@ const RegisterContainer = () => {
 };
 
 const RegisterStyle = styled.section`
+  margin-top: 25%;
   form {
     margin: 0 auto;
     height: 50%;
@@ -78,6 +79,8 @@ const RegisterStyle = styled.section`
       border: none;
       color: white;
       border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bolder;
     }
   }
   p {

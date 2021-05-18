@@ -17,7 +17,7 @@ const NewPostContainer = () => {
 
   return (
     <MainContainer>
-      <h1>New post</h1>
+      <h1>Find sitter</h1>
       <NewPostStyle>
         <form>
           <input
@@ -111,6 +111,7 @@ const NewPostStyle = styled.section`
     justify-content: center;
     align-items: center;
     color: white;
+    margin-top: 8%;
   }
 `;
 

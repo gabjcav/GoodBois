@@ -16,6 +16,7 @@ const PostsContainer = () => {
   const [posts, setPosts] = useState([]);
   const [fbError, setFbError] = useState(null);
   const history = useHistory();
+  const [showMessage, setShowMessage] = useState(false);
 
   useEffect(() => {
     queryFirebase("posts")
@@ -26,12 +27,26 @@ const PostsContainer = () => {
   const handleRedirectNewPost = () => {
     history.push("/newpost");
   };
-  const handleRedirectMessage = () => {
-    history.push("/newpost");
-  };
 
   const renderPosts = () => {
-    return (
+    const renderSpinner = () => {
+      return (
+        <LoaderContainer>
+          <Loader
+            type="TailSpin"
+            color="var(--orange-background-color)"
+            height={100}
+            width={100}
+            timeout={3000}
+          />
+        </LoaderContainer>
+      );
+    };
+
+    //If there are no posts (or not loaded yet from firebase), render spinner
+    return !posts.length ? (
+      renderSpinner()
+    ) : (
       <PostsStyle>
         {posts?.map((post) => {
           const p = post.data();
@@ -43,11 +58,27 @@ const PostsContainer = () => {
               <p>Breed: {p.Breed}</p>
               <p>Number of days: {p.NumberOfDays}</p>
               <p>City: {p.City}</p>
+
               <div>
-                <button onClick={handleRedirectMessage}>Message</button>
+                <button
+                  onClick={() => {
+                    setShowMessage(true);
+                  }}
+                >
+                  Message
+                </button>
 
                 {user?.uid === p.UserId ? (
-                  <button type="button" onClick={() => console.log(postId)}>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      firebaseInstance
+                        .firestore()
+                        .collection("posts")
+                        .doc(postId)
+                        .delete()
+                    }
+                  >
                     Remove
                   </button>
                 ) : (
@@ -64,33 +95,36 @@ const PostsContainer = () => {
     );
   };
 
-  const renderSkeleton = () => {
+  const renderMessage = () => {
     return (
-      <LoaderContainer>
-        <Loader
-          type="TailSpin"
-          color="var(--orange-background-color)"
-          height={100}
-          width={100}
-          timeout={3000} //3 secs
-        />
-      </LoaderContainer>
+      <div>
+        <h2 style={{ marginTop: "20%" }}>hello</h2>
+        <button
+          onClick={() => {
+            setShowMessage(false);
+          }}
+        >
+          Go back
+        </button>
+      </div>
     );
   };
 
   return (
     <MainContainer>
       <h1>Available pets</h1>
-      {posts.length === 0 ? renderSkeleton() : renderPosts()}
+      {!showMessage ? renderPosts() : renderMessage()}
     </MainContainer>
   );
 };
 
 const PostsStyle = styled.section`
-  padding: 10%;
+  padding: 5%;
+  margin-top: 10%;
   display: flex;
   flex-direction: column;
   max-height: 80%;
+  //individual posts
 
   article {
     background-color: var(--orange-light);
@@ -102,10 +136,8 @@ const PostsStyle = styled.section`
     flex-direction: column;
     justify-content: space-around;
     color: white;
-    border: 2px solid var(--orange-background-color);
     font-size: 1.3rem;
-    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
-    z-index: -1;
+    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 4px 0px;
     div {
       display: flex;
       flex-direction: row;
@@ -116,11 +148,12 @@ const PostsStyle = styled.section`
       border-radius: 5px;
       margin-bottom: 2%;
       text-align: center;
-      box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 4px 0px;
+      box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 2px 0px;
     }
+
+    //Message / Remove buttons
     button {
       border-radius: 5px;
-      background-color: var(--orange-background-color);
       color: white;
       font-weight: bolder;
       width: 80px;
@@ -129,6 +162,8 @@ const PostsStyle = styled.section`
       cursor: pointer !important;
     }
   }
+
+  // "+" button
 
   button {
     background-color: var(--orange-background-color);

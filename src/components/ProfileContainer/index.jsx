@@ -48,9 +48,16 @@ const ProfileStyle = styled.section`
   height: 100%;
   width: 100%;
   text-align: center;
+  margin-top: 25%;
   div {
     display: flex;
     flex-direction: column;
+    h2 {
+      padding: 10px;
+      color: var(--orange-background-color);
+      font-size: 1.8rem;
+      font-family: "Patua One", sans-serif;
+    }
     button {
       width: 25%;
       height: 30px;

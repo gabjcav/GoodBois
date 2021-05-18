@@ -29,8 +29,8 @@ const MessagesContainer = () => {
 };
 
 const MessagesStyle = styled.section`
-  background-color: red;
-  margin-top: 50vh;
+  height: 100%;
+  margin-top: 20%;
 `;
 
 export default MessagesContainer;

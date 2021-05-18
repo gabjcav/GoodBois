@@ -26,9 +26,7 @@ const MainContainer = styled.main`
         letter-spacing: 2px;
         color: white; 
     }
-    section{
-        margin-top: 10%; 
-    }
+    
 `
 
 export default MainContainer; 

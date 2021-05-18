@@ -17,7 +17,7 @@ const HomeContainer = () => {
     <MainContainer>
       <h1>GoodBois</h1>
       <HomeStyle>
-        <p>The best place to find sitters for your pets!</p>
+        <h2>The best place to find sitters for your pets!</h2>
         {!isAuthenticated && (
           <button onClick={handleRedirectLogin}>Sign in</button>
         )}
@@ -40,7 +40,7 @@ const HomeStyle = styled.section`
   width: 100%;
   padding: 30px;
 
-  p {
+  h2 {
     padding: 10px;
     color: var(--orange-background-color);
     font-size: 1.8rem;
