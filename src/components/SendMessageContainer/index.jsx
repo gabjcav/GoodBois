@@ -25,7 +25,6 @@ const SendMessageContainer = () => {
           <textarea
             onChange={(e) => {
               setMessage(e.target.value);
-              console.log(e);
             }}
             placeholder="Write about yourself"
             type="text"

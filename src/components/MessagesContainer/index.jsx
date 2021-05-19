@@ -22,8 +22,6 @@ const MessagesContainer = () => {
       .catch((error) => setFbError(error));
   }, []);
 
-  console.log(user?.uid);
-
   return (
     <MainContainer>
       <h1>Messages</h1>
@@ -31,14 +29,13 @@ const MessagesContainer = () => {
         {!isAuthenticated && (
           <>
             <p>Sign in to view messages</p>
-            <button onClick={handleRedirect}>Sign in</button>
           </>
         )}
         {messages?.map((msg) => {
           const m = msg.data();
           const postowner = m.PostOwner;
           const messageId = msg.id;
-          console.log(m);
+
           if (user?.uid === postowner) {
             return (
               <div key={uuid()}>
@@ -114,6 +111,13 @@ const MessagesStyle = styled.section`
       padding: 5px;
       margin-right: 5px;
     }
+  }
+
+  @media (min-width: 768px) {
+    max-width: 40%;
+    margin: 0 auto;
+    padding: 5%;
+    margin-top: 10%;
   }
 `;
 

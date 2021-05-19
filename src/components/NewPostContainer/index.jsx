@@ -92,7 +92,7 @@ const NewPostStyle = styled.section`
     align-items: center;
     gap: 20px;
     input {
-      width: 60%;
+      width: 90%;
       padding: 15px;
       height: 5vh;
       font-size: 1rem;

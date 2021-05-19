@@ -30,7 +30,6 @@ const PostsContainer = () => {
   const handleRedirectNewPost = () => {
     history.push("/newpost");
   };
-  console.log(user);
 
   const renderPosts = () => {
     //If there are no posts (or not loaded yet from firebase), render spinner
