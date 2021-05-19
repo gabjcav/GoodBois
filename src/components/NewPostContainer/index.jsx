@@ -92,7 +92,7 @@ const NewPostStyle = styled.section`
     align-items: center;
     gap: 20px;
     input {
-      width: 60vw;
+      width: 60%;
       padding: 15px;
       height: 5vh;
       font-size: 1rem;
@@ -112,6 +112,15 @@ const NewPostStyle = styled.section`
     align-items: center;
     color: white;
     margin-top: 8%;
+  }
+  @media (min-width: 768px) {
+    max-width: 40%;
+    margin: 0 auto;
+    padding: 5%;
+    margin-top: 10%;
+    form {
+      margin-top: 0;
+    }
   }
 `;
 

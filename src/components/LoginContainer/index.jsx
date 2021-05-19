@@ -101,6 +101,12 @@ const LoginStyle = styled.section`
       }
     }
   }
+
+  @media (min-width: 768px) {
+    max-width: 40%;
+    margin: 0 auto;
+    margin-top: 10%;
+  }
 `;
 
 export default LoginContainer;

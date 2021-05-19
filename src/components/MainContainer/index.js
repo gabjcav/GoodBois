@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const MainContainer = styled.main`
-    width: 100%;
+    max-width: 100%;
     max-height: 100%; 
     display: flex; 
     flex-direction: column; 
@@ -26,6 +26,8 @@ const MainContainer = styled.main`
         letter-spacing: 2px;
         color: white; 
     }
+    
+
     
 `
 

@@ -8,10 +8,10 @@ import {
   faComments,
 } from "@fortawesome/free-solid-svg-icons";
 import { useAuth } from "../../utils/context";
-
+import { useParams } from "react-router-dom";
 const NavBar = () => {
   const { isAuthenticated } = useAuth();
-
+  const { id } = useParams();
   return (
     <NavStyle>
       <ul>
@@ -38,7 +38,7 @@ const NavBar = () => {
           )}
         </li>
         <li>
-          <a href="/messages">
+          <a href={`/messages/${id}`}>
             <FontAwesomeIcon icon={faComments} />
           </a>
         </li>
@@ -69,6 +69,18 @@ const NavStyle = styled.nav`
         color: white;
         text-decoration: none;
         font-size: 1.3rem;
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    ul {
+      li {
+        a {
+          font-size: 2rem;
+          :hover {
+            transform: scale(4);
+          }
+        }
       }
     }
   }

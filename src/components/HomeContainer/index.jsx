@@ -37,7 +37,7 @@ const HomeStyle = styled.section`
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
+  max-width: 100%;
   padding: 30px;
 
   h2 {
@@ -57,13 +57,23 @@ const HomeStyle = styled.section`
     margin-top: 20%;
     font-size: 1rem;
     background-color: var(--orange-background-color);
-    border-radius: 6%;
+    border-radius: 5px;
     border: none;
     cursor: pointer;
     &:hover {
       border: 2px solid var(--orange-background-color);
       color: var(--orange-background-color);
       background-color: white;
+    }
+  }
+
+  @media (min-width: 768px) {
+    max-width: 40%;
+    margin: 0 auto;
+    padding: 5%;
+    margin-top: 0%;
+    h2 {
+      font-size: 2.2rem;
     }
   }
 `;

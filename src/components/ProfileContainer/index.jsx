@@ -20,7 +20,6 @@ const ProfileContainer = () => {
     history.push("messages");
   };
 
-  console.log("user", user);
   return (
     <MainContainer>
       <h1>Profile</h1>
@@ -70,6 +69,11 @@ const ProfileStyle = styled.section`
       font-weight: bold;
       border-radius: 5px;
     }
+  }
+  @media (min-width: 768px) {
+    max-width: 40%;
+    margin: 0 auto;
+    margin-top: 10%;
   }
 `;
 
