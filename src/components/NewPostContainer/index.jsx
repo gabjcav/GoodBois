@@ -10,6 +10,7 @@ import { useAuth } from "../../utils/context";
 const NewPostContainer = () => {
   const history = useHistory();
   const [animalType, setAnimalType] = useState("");
+  const [petName, setPetName] = useState("");
   const [breed, setBreed] = useState("");
   const [city, setCity] = useState("");
   const [numberOfDays, setNumberOfDays] = useState(0);
@@ -34,6 +35,12 @@ const NewPostContainer = () => {
           />
           <input
             required
+            onChange={(e) => setPetName(e.target.value)}
+            placeholder="Pet name"
+            type="text"
+          />
+          <input
+            required
             onChange={(e) => setCity(e.target.value)}
             placeholder="City"
             type="text"
@@ -54,6 +61,7 @@ const NewPostContainer = () => {
                 AnimalType: animalType,
                 Breed: breed,
                 City: city,
+                Name: petName,
                 NumberOfDays: numberOfDays,
                 UserId: user.uid,
               });
@@ -61,6 +69,7 @@ const NewPostContainer = () => {
               setBreed("");
               setCity("");
               setNumberOfDays(0);
+              setPetName("");
 
               history.push("/posts");
             }

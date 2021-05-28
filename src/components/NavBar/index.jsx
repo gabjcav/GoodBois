@@ -38,7 +38,7 @@ const NavBar = () => {
           )}
         </li>
         <li>
-          <a href={`/messages/${id}`}>
+          <a href={`/messages`}>
             <FontAwesomeIcon icon={faComments} />
           </a>
         </li>

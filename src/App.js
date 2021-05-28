@@ -21,12 +21,12 @@ function App() {
           <NavBar path="/" />
           <Route path="/" exact component={HomeContainer} />
           <Route
-            path="/newmessage/:id/:postOwner"
+            path="/newmessage/:id/:postOwner/:petName"
             component={SendMessageContainer}
           />
           <Route path="/profile" component={ProfileContainer} />
           <Route path="/newpost" component={NewPostContainer} />
-          <Route path="/messages/" component={MessagesContainer} />
+          <Route path="/messages" component={MessagesContainer} />
           <Route path="/login" component={LoginContainer} />
           <Route path="/posts" component={PostsContainer} />
           <Route path="/register" component={RegisterContainer} />

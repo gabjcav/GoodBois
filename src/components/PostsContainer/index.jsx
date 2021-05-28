@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import queryFirebase from "../../config/firebase";
 import { useAuth } from "../../utils/context";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import MainContainer from "../MainContainer";
 import LoaderContainer from "../LoaderContainer";
 import { firebaseInstance } from "../../config/firebase";
@@ -35,45 +35,49 @@ const PostsContainer = () => {
     //If there are no posts (or not loaded yet from firebase), render spinner
     return (
       <PostsStyle>
-        {posts?.map((post) => {
-          const p = post.data();
-          const postId = post.id;
-          const postOwner = p.UserId;
+        <div className="post-div">
+          {posts?.map((post) => {
+            const p = post.data();
+            const postId = post.id;
+            const postOwner = p.UserId;
+            const petName = p.Name;
+            console.log(p);
+            return (
+              <article key={uuid()}>
+                <p>Animal type: {p.AnimalType}</p>
+                <p>Breed: {p.Breed}</p>
+                <p>Name: {p.Name}</p>
+                <p>Number of days: {p.NumberOfDays}</p>
+                <p>City: {p.City}</p>
 
-          return (
-            <article key={uuid()}>
-              <p>Animal type: {p.AnimalType}</p>
-              <p>Breed: {p.Breed}</p>
-              <p>Number of days: {p.NumberOfDays}</p>
-              <p>City: {p.City}</p>
-
-              <div>
-                {/* Show "remove" button if it is your own post */}
-                {user?.uid === postOwner ? (
-                  <button
-                    type="button"
-                    onClick={() =>
-                      firebaseInstance
-                        .firestore()
-                        .collection("posts")
-                        .doc(postId)
-                        .delete()
-                    }
-                  >
-                    Remove
-                  </button>
-                ) : (
-                  <a href={`/newmessage/${postId}/${postOwner}`}>
-                    Message owner
-                  </a>
-                )}
-              </div>
-            </article>
-          );
-        })}
-        <button onClick={handleRedirectNewPost}>
-          <FontAwesomeIcon icon={faPlus} />
-        </button>
+                <div className="button-div">
+                  {/* Show "remove" button if it is your own post */}
+                  {user?.uid === postOwner ? (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        firebaseInstance
+                          .firestore()
+                          .collection("posts")
+                          .doc(postId)
+                          .delete()
+                      }
+                    >
+                      Remove
+                    </button>
+                  ) : (
+                    <Link to={`/newmessage/${postId}/${postOwner}/${petName}`}>
+                      Message owner
+                    </Link>
+                  )}
+                </div>
+              </article>
+            );
+          })}
+          <button onClick={handleRedirectNewPost}>
+            <FontAwesomeIcon icon={faPlus} />
+          </button>
+        </div>
       </PostsStyle>
     );
   };
@@ -103,7 +107,6 @@ const PostsContainer = () => {
 //STYLING FOR POSTS (INDIVIDUAL POSTS FOR SINGLE PET)
 
 const PostsStyle = styled.section`
-  padding: 5%;
   max-width: 100%;
   margin-top: 10%;
   display: flex;
@@ -111,51 +114,52 @@ const PostsStyle = styled.section`
   max-height: 80%;
 
   //individual posts
-
-  article {
-    background-color: var(--orange-light);
-    padding: 5%;
-    min-height: 20%;
-    border-radius: 10px;
-    margin-top: 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    color: white;
-    font-size: 1.3rem;
-    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 4px 0px;
-    a {
-      color: var(--orange-background-color);
-      padding: 5px;
-      text-decoration: none;
-      border-radius: 5px;
-      margin: 0 auto;
-      margin-top: 5%;
-      background-color: white;
-      box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 2px 0px;
-    }
-    div {
+  .post-div {
+    background-color: #fff;
+    article {
+      background-color: #fff;
+      padding: 5%;
+      min-height: 20%;
+      margin-top: 10%;
       display: flex;
-      flex-direction: row;
-    }
-    p {
-      background-color: var(--orange-background-color);
-      padding: 5px;
-      border-radius: 5px;
-      margin-bottom: 2%;
-      text-align: center;
-      box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 2px 0px;
-    }
-
-    //Message & Remove button
-    button {
-      border-radius: 5px;
+      flex-direction: column;
+      justify-content: space-around;
       color: white;
-      font-weight: bolder;
-      width: 80px;
-      margin-top: 8%;
-      margin-bottom: 5%;
-      cursor: pointer !important;
+      font-size: 1.3rem;
+      box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 4px 0px;
+      a {
+        color: var(--orange-background-color);
+        padding: 5px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin: 0 auto;
+        margin-top: 5%;
+        background-color: white;
+        box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 2px 0px;
+      }
+      .button-div {
+        display: flex;
+        flex-direction: row;
+      }
+      p {
+        background-color: var(--orange-background-color);
+        padding: 5px;
+        border-radius: 5px;
+        margin-bottom: 2%;
+        text-align: center;
+        box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 2px 0px;
+      }
+
+      //Message & Remove button
+      button {
+        border-radius: 5px;
+        color: white;
+        font-weight: bolder;
+        width: 80px;
+        margin-top: 8%;
+        margin-bottom: 5%;
+        cursor: pointer !important;
+      }
     }
   }
 

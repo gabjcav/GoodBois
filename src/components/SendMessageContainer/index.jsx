@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 const SendMessageContainer = () => {
   const [message, setMessage] = useState("");
   const { isAuthenticated, user } = useAuth();
-  const { id, postOwner } = useParams();
+  const { id, postOwner, petName } = useParams();
   const history = useHistory();
 
   const handleRedirectHome = () => {
@@ -20,7 +20,7 @@ const SendMessageContainer = () => {
     <MainContainer>
       <h1>Send Message</h1>
       <SendMessageStyle>
-        <h2>Regarding (Pet-id): {id}</h2>
+        <h2>Regarding: {petName}</h2>
         <form>
           <textarea
             onChange={(e) => {
@@ -72,13 +72,15 @@ const SendMessageStyle = styled.section`
     display: flex;
     flex-direction: column;
     textarea {
-      margin-top: 5%;
-      min-width: 50%;
-      min-height: 20vh;
-      max-width: 90%;
-      max-height: 50vh;
+      margin-top: 10%;
+      min-height: 30vh;
+      min-width: 40vw;
+      max-width: 70vw;
+      max-height: 70vh;
       padding: 10px;
       font-size: 1.5rem;
+      border: 2px solid var(--orange-background-color);
+      border-radius: 15px;
     }
 
     button {
