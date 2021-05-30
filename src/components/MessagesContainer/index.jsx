@@ -22,53 +22,56 @@ const MessagesContainer = () => {
       .catch((error) => setFbError(error));
   }, []);
 
+  const renderMessages = () => {
+    return messages?.map((msg) => {
+      const m = msg.data();
+      const postowner = m.PostOwner;
+      const messageId = msg.id;
+      console.log(m);
+      if (user?.uid === postowner) {
+        return (
+          <div key={uuid()}>
+            <p>From: {m.From}</p>
+            <p>Regarding: {m.PetName}</p>
+            <p>Message:</p>
+            <p>{m.Message}</p>
+            <button
+              onClick={async () =>
+                await firebaseInstance
+                  .firestore()
+                  .collection("inbox")
+                  .doc(messageId)
+                  .delete()
+              }
+            >
+              Accept
+            </button>
+            <button
+              onClick={async () =>
+                await firebaseInstance
+                  .firestore()
+                  .collection("inbox")
+                  .doc(messageId)
+                  .delete()
+              }
+            >
+              Decline
+            </button>
+          </div>
+        );
+      }
+    });
+  };
+
+  const renderEmpty = () => {
+    return <p>No messages</p>;
+  };
+
   return (
     <MainContainer>
       <h1>Messages</h1>
       <MessagesStyle>
-        {!isAuthenticated && (
-          <>
-            <p>Sign in to view messages</p>
-          </>
-        )}
-        {messages?.map((msg) => {
-          const m = msg.data();
-          const postowner = m.PostOwner;
-          const messageId = msg.id;
-
-          if (user?.uid === postowner) {
-            return (
-              <div key={uuid()}>
-                <p>From user: {m.From}</p>
-                <p>Regarding: {m.Regarding}</p>
-                <p>Message:</p>
-                <p>{m.Message}</p>
-                <button
-                  onClick={async () =>
-                    await firebaseInstance
-                      .firestore()
-                      .collection("inbox")
-                      .doc(messageId)
-                      .delete()
-                  }
-                >
-                  Accept
-                </button>
-                <button
-                  onClick={async () =>
-                    await firebaseInstance
-                      .firestore()
-                      .collection("inbox")
-                      .doc(messageId)
-                      .delete()
-                  }
-                >
-                  Decline
-                </button>
-              </div>
-            );
-          }
-        })}
+        {messages.length === 0 ? renderEmpty() : renderMessages()}
       </MessagesStyle>
     </MainContainer>
   );
@@ -93,7 +96,10 @@ const MessagesStyle = styled.section`
 
     p {
       margin-bottom: 5px;
-      text-align: center;
+      text-align: left;
+      :nth-child(2) {
+        margin-top: 15px;
+      }
       :nth-child(3) {
         margin-top: 15px;
       }
@@ -110,6 +116,9 @@ const MessagesStyle = styled.section`
     button {
       padding: 5px;
       margin-right: 5px;
+      background-color: white;
+      border: none;
+      border-radius: 5px;
     }
   }
 
