@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -14,8 +14,8 @@ const GlobalStyle = createGlobalStyle`
     :root {
         --orange-background-color: #fb8250; 
         --orange-light: #fdb79b; 
-        --yellow-background-color: #fbd850; 
+        --gray: #6f6f6f;
     }
-`
+`;
 
-export default GlobalStyle; 
+export default GlobalStyle;

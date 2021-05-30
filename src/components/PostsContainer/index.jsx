@@ -67,7 +67,7 @@ const PostsContainer = () => {
                     </button>
                   ) : (
                     <Link to={`/newmessage/${postId}/${postOwner}/${petName}`}>
-                      Message owner
+                      Ask to sit
                     </Link>
                   )}
                 </div>
@@ -116,25 +116,28 @@ const PostsStyle = styled.section`
   //individual posts
   .post-div {
     background-color: #fff;
+    padding: 15px;
     article {
-      background-color: #fff;
+      background-color: var(--orange-background-color);
       padding: 5%;
       min-height: 20%;
+      border-radius: 5px;
       margin-top: 10%;
       display: flex;
+      gap: 10px;
       flex-direction: column;
       justify-content: space-around;
       color: white;
       font-size: 1.3rem;
       box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 4px 0px;
       a {
-        color: var(--orange-background-color);
-        padding: 5px;
+        color: var(--gray);
+        padding: 10px;
         text-decoration: none;
         border-radius: 5px;
         margin: 0 auto;
         margin-top: 5%;
-        background-color: white;
+        background-color: #fff;
         box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 2px 0px;
       }
       .button-div {
@@ -142,12 +145,13 @@ const PostsStyle = styled.section`
         flex-direction: row;
       }
       p {
-        background-color: var(--orange-background-color);
+        background-color: #fff;
         padding: 5px;
         border-radius: 5px;
         margin-bottom: 2%;
         text-align: center;
-        box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 2px 0px;
+        color: var(--gray);
+        box-shadow: rgba(99, 99, 99, 0.4) 0px 0px 3px 0px;
       }
 
       //Message & Remove button

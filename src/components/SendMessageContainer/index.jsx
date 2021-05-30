@@ -34,7 +34,7 @@ const SendMessageContainer = () => {
             onClick={async (e) => {
               e.preventDefault();
               if (!isAuthenticated) {
-                alert("Sign in to complete");
+                return <p>Sign in to send message</p>;
               } else {
                 await firebaseInstance
                   .firestore()
@@ -42,9 +42,9 @@ const SendMessageContainer = () => {
                   .doc()
                   .set({
                     Message: message,
-                    From: user.uid,
+                    From: user.email,
                     PostOwner: postOwner,
-                    Regarding: id,
+                    PetName: petName,
                   });
                 setMessage("");
                 alert("Message has been sent");
