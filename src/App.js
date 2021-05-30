@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ProfileContainer from "./components/ProfileContainer";
 import HomeContainer from "./components/HomeContainer";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavbarContainer";
 import LoginContainer from "./components/LoginContainer";
 import RegisterContainer from "./components/RegisterContainer";
 import NewPostContainer from "./components/NewPostContainer";

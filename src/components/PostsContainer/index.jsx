@@ -143,6 +143,10 @@ const PostsStyle = styled.section`
       .button-div {
         display: flex;
         flex-direction: row;
+        button {
+          background-color: #fff;
+          color: var(--gray);
+        }
       }
       p {
         background-color: #fff;
