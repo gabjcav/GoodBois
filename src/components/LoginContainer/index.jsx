@@ -72,14 +72,14 @@ const LoginStyle = styled.section`
 
     button,
     input {
-      padding: 1rem;
+      padding: 1.5rem;
     }
 
     button {
       background-color: var(--orange-background-color);
       border: none;
       color: white;
-      font-size: 1rem;
+      font-size: 1.4rem;
       font-weight: bolder;
       border-radius: 0.5rem;
       margin-top: 1.5rem;
@@ -88,7 +88,7 @@ const LoginStyle = styled.section`
     input {
       border: 0.2rem solid var(--orange-background-color);
       border-radius: 0.4rem;
-      font-size: 1rem;
+      font-size: 1.5rem;
       height: 3rem;
     }
   }
@@ -97,6 +97,7 @@ const LoginStyle = styled.section`
     background-color: var(--orange-background-color);
     color: white;
     padding: 1rem;
+    font-size: 1.6rem;
     font-weight: bolder;
     border-radius: 0.5rem;
     box-shadow: rgba(99, 99, 99, 0.4) 0rem 0.2rem 0.3rem 0rem;

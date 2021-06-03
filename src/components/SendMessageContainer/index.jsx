@@ -68,6 +68,12 @@ const SendMessageStyle = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  h2 {
+    font-size: 2rem;
+    margin-top: 1rem;
+    text-decoration: underline;
+    text-underline-offset: 0.6rem;
+  }
   form {
     display: flex;
     flex-direction: column;
@@ -77,8 +83,8 @@ const SendMessageStyle = styled.section`
       min-width: 40vw;
       max-width: 70vw;
       max-height: 70vh;
-      padding: 10px;
-      font-size: 1.5rem;
+      padding: 1.5rem;
+      font-size: 2.5rem;
       border: 0.2rem solid var(--orange-background-color);
       border-radius: 1.5rem;
     }
@@ -90,7 +96,7 @@ const SendMessageStyle = styled.section`
       font-weight: bolder;
       max-width: 40%;
       margin-top: 8%;
-      height: 20px;
+      height: 2rem;
       margin-bottom: 5%;
       cursor: pointer !important;
     }

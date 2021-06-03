@@ -71,16 +71,24 @@ const RegisterStyle = styled.section`
 
     button,
     input {
-      padding: 0.5rem;
+      padding: 1.5rem;
     }
 
     button {
       background-color: var(--orange-background-color);
       border: none;
       color: white;
-      border-radius: 0.5rem;
-      font-size: 1rem;
+      font-size: 1.4rem;
       font-weight: bolder;
+      border-radius: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    input {
+      border: 0.2rem solid var(--orange-background-color);
+      border-radius: 0.4rem;
+      font-size: 1.5rem;
+      height: 3rem;
     }
   }
   p {
@@ -88,6 +96,7 @@ const RegisterStyle = styled.section`
     background-color: var(--orange-background-color);
     color: white;
     padding: 1rem;
+    font-size: 1.6rem;
     font-weight: bolder;
     border-radius: 0.5rem;
     box-shadow: rgba(99, 99, 99, 0.4) 0rem 0.2rem 0.3rem 0rem;
@@ -100,6 +109,7 @@ const RegisterStyle = styled.section`
       }
     }
   }
+
   @media (min-width: 768px) {
     max-width: 40%;
     margin: 0 auto;

@@ -38,9 +38,16 @@ const NavBar = () => {
           )}
         </li>
         <li>
-          <a href={`/messages`}>
-            <FontAwesomeIcon icon={faComments} />
-          </a>
+          {isAuthenticated && (
+            <a href="/messages">
+              <FontAwesomeIcon icon={faComments} />
+            </a>
+          )}
+          {!isAuthenticated && (
+            <a href="/login">
+              <FontAwesomeIcon icon={faComments} />
+            </a>
+          )}
         </li>
       </ul>
     </NavStyle>
@@ -68,7 +75,7 @@ const NavStyle = styled.nav`
       a {
         color: white;
         text-decoration: none;
-        font-size: 1.3rem;
+        font-size: 2rem;
       }
     }
   }
@@ -76,10 +83,7 @@ const NavStyle = styled.nav`
     ul {
       li {
         a {
-          font-size: 2rem;
-          :hover {
-            transform: scale(4);
-          }
+          font-size: 3.5rem;
         }
       }
     }

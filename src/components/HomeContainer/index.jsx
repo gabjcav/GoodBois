@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../utils/context";
 import MainContainer from "../MainContainer";
-
+import { Link } from "react-router-dom";
 const HomeContainer = () => {
   const history = useHistory();
   const { isAuthenticated, user } = useAuth();
@@ -24,6 +24,10 @@ const HomeContainer = () => {
         {isAuthenticated && (
           <button onClick={handleRedirectProfile}>Go to profile</button>
         )}
+
+        <button>
+          <Link to={"/posts"}>See available pets</Link>
+        </button>
       </HomeStyle>
     </MainContainer>
   );
@@ -43,27 +47,29 @@ const HomeStyle = styled.section`
   h2 {
     padding: 1rem;
     color: var(--orange-background-color);
-    font-size: 1.8rem;
+    font-size: 3rem;
     font-family: "Patua One", sans-serif;
     margin-top: 20%;
+    text-align: left;
+    letter-spacing: 0.15rem;
+    border: 1;
   }
 
   button {
-    width: 40%;
+    width: 60%;
     height: 5%;
     padding: 1rem;
     color: white;
     font-weight: bold;
     margin-top: 20%;
-    font-size: 1rem;
+    font-size: 1.5rem;
     background-color: var(--orange-background-color);
     border-radius: 0.5rem;
-    border: none;
+    border: 0.2rem solid var(--orange-background-color);
     cursor: pointer;
-    &:hover {
-      border: 0.2rem solid var(--orange-background-color);
-      color: var(--orange-background-color);
-      background-color: white;
+    a {
+      text-decoration: none;
+      color: #fff;
     }
   }
 

@@ -11,6 +11,9 @@ const GlobalStyle = createGlobalStyle`
 
     html{
         font-size: 62.5%; 
+        @media screen and (min-width: 768px) {
+            font-size: 95%;
+        }
     }
 
 

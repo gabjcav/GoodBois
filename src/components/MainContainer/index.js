@@ -8,7 +8,7 @@ const MainContainer = styled.main`
   padding: 5%;
   min-height: 80%;
   button {
-    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 3px 0px;
+    box-shadow: rgba(99, 99, 99, 0.4) 0rem 0.2rem 0.3rem 0rem;
     cursor: pointer;
   }
   h1 {

@@ -27,7 +27,7 @@ const ProfileContainer = () => {
         {user && (
           <div>
             <h2>Welcome back,</h2>
-            {user.email}
+            <p>{user.email}</p>
             <button onClick={handleRedirectMessages}>Messages</button>
             <button onClick={handleSignout}>Sign Out</button>
           </div>
@@ -54,8 +54,21 @@ const ProfileStyle = styled.section`
     h2 {
       padding: 1rem;
       color: var(--orange-background-color);
-      font-size: 1.8rem;
+      font-size: 3rem;
       font-family: "Patua One", sans-serif;
+      margin-bottom: 2rem;
+    }
+    p {
+      font-size: 1.2rem;
+      padding: 1rem;
+      width: 50%;
+      margin: 0 auto;
+      color: var(--gray);
+      font-weight: bolder;
+      border-radius: 0.5rem;
+      letter-spacing: 0.1rem;
+      background-color: var(--orange-light);
+      box-shadow: rgba(99, 99, 99, 0.4) 0rem 0.1rem 0.2rem 0rem;
     }
     button {
       width: 25%;
@@ -65,7 +78,7 @@ const ProfileStyle = styled.section`
       background-color: var(--orange-background-color);
       color: white;
       border: none;
-      font-size: 1rem;
+      font-size: 1.5rem;
       font-weight: bold;
       border-radius: 0.5rem;
     }

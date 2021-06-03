@@ -40,7 +40,6 @@ const PostsContainer = () => {
             const postId = post.id;
             const postOwner = p.UserId;
             const petName = p.Name;
-            console.log(p);
             return (
               <article key={uuid()}>
                 <p>"{p.Name}"</p>
@@ -156,8 +155,15 @@ const PostsStyle = styled.section`
         margin: 0 auto;
         margin-top: 5%;
         font-size: 1.5rem;
+        border: 0.1rem solid var(--orange-background-color);
         background-color: var(--orange-background-color);
         box-shadow: rgba(99, 99, 99, 0.4) 0rem 0.2rem 0.2rem 0rem;
+        transition: all 0.3s ease;
+        &:hover {
+          color: var(--orange-background-color);
+          background-color: #fff;
+          border: 0.1rem solid var(--orange-background-color);
+        }
       }
       .button-div {
         display: flex;

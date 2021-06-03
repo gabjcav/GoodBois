@@ -4,11 +4,10 @@ import { useAuth } from "../../utils/context";
 import { useHistory } from "react-router-dom";
 import MainContainer from "../MainContainer";
 import queryFirebase, { firebaseInstance } from "../../config/firebase";
-import { useParams } from "react-router-dom";
 import uuid from "uuid";
 
 const MessagesContainer = () => {
-  const { isAuthenticated, user } = useAuth();
+  const { user } = useAuth();
   const history = useHistory();
   const [messages, setMessages] = useState([]);
   const [fbError, setFbError] = useState(null);
@@ -27,7 +26,6 @@ const MessagesContainer = () => {
       const m = msg.data();
       const postowner = m.PostOwner;
       const messageId = msg.id;
-      console.log(m);
       if (user?.uid === postowner) {
         return (
           <div key={uuid()}>
@@ -90,8 +88,9 @@ const MessagesStyle = styled.section`
     padding: 1rem;
     min-height: 10rem;
     border-radius: 0.5rem;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
     box-shadow: rgba(99, 99, 99, 0.4) 0rem 0.2rem 0.3rem 0rem;
 
     p {
