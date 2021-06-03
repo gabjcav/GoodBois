@@ -99,14 +99,14 @@ const NewPostStyle = styled.section`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 2rem;
     input {
       width: 90%;
-      padding: 15px;
+      padding: 1.5rem;
       height: 5vh;
       font-size: 1rem;
-      border: 2px solid var(--orange-background-color);
-      border-radius: 10px;
+      border: 0.2rem solid var(--orange-background-color);
+      border-radius: 1rem;
     }
   }
   button {
@@ -114,8 +114,8 @@ const NewPostStyle = styled.section`
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    width: 50px;
-    height: 50px;
+    width: 5rem;
+    height: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;

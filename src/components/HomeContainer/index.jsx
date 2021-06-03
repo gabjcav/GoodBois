@@ -38,10 +38,10 @@ const HomeStyle = styled.section`
   justify-content: space-around;
   align-items: center;
   max-width: 100%;
-  padding: 30px;
+  padding: 3rem;
 
   h2 {
-    padding: 10px;
+    padding: 1rem;
     color: var(--orange-background-color);
     font-size: 1.8rem;
     font-family: "Patua One", sans-serif;
@@ -51,17 +51,17 @@ const HomeStyle = styled.section`
   button {
     width: 40%;
     height: 5%;
-    padding: 10px;
+    padding: 1rem;
     color: white;
     font-weight: bold;
     margin-top: 20%;
     font-size: 1rem;
     background-color: var(--orange-background-color);
-    border-radius: 5px;
+    border-radius: 0.5rem;
     border: none;
     cursor: pointer;
     &:hover {
-      border: 2px solid var(--orange-background-color);
+      border: 0.2rem solid var(--orange-background-color);
       color: var(--orange-background-color);
       background-color: white;
     }

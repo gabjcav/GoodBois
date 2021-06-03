@@ -61,7 +61,7 @@ const RegisterStyle = styled.section`
   form {
     margin: 0 auto;
     height: 50%;
-    gap: 10px;
+    gap: 1rem;
     display: flex;
     flex-direction: column;
     width: 30%;
@@ -71,14 +71,14 @@ const RegisterStyle = styled.section`
 
     button,
     input {
-      padding: 5px;
+      padding: 0.5rem;
     }
 
     button {
       background-color: var(--orange-background-color);
       border: none;
       color: white;
-      border-radius: 5px;
+      border-radius: 0.5rem;
       font-size: 1rem;
       font-weight: bolder;
     }
@@ -87,14 +87,14 @@ const RegisterStyle = styled.section`
     text-align: center;
     background-color: var(--orange-background-color);
     color: white;
-    padding: 10px;
+    padding: 1rem;
     font-weight: bolder;
-    border-radius: 5px;
-    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 3px 0px;
+    border-radius: 0.5rem;
+    box-shadow: rgba(99, 99, 99, 0.4) 0rem 0.2rem 0.3rem 0rem;
     a {
       color: white;
-      text-underline-offset: 2px;
-      text-decoration-thickness: 2px;
+      text-underline-offset: 0.2rem;
+      text-decoration-thickness: 0.2rem;
       &:hover {
         color: black;
       }

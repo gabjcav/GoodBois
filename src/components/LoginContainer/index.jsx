@@ -62,7 +62,7 @@ const LoginStyle = styled.section`
   form {
     margin: 0 auto;
     height: 50%;
-    gap: 10px;
+    gap: 1rem;
     display: flex;
     flex-direction: column;
     width: 30%;
@@ -72,7 +72,7 @@ const LoginStyle = styled.section`
 
     button,
     input {
-      padding: 5px;
+      padding: 1rem;
     }
 
     button {
@@ -81,21 +81,29 @@ const LoginStyle = styled.section`
       color: white;
       font-size: 1rem;
       font-weight: bolder;
-      border-radius: 5px;
+      border-radius: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    input {
+      border: 0.2rem solid var(--orange-background-color);
+      border-radius: 0.4rem;
+      font-size: 1rem;
+      height: 3rem;
     }
   }
   p {
     text-align: center;
     background-color: var(--orange-background-color);
     color: white;
-    padding: 10px;
+    padding: 1rem;
     font-weight: bolder;
-    border-radius: 5px;
-    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 3px 0px;
+    border-radius: 0.5rem;
+    box-shadow: rgba(99, 99, 99, 0.4) 0rem 0.2rem 0.3rem 0rem;
     a {
       color: white;
-      text-underline-offset: 2px;
-      text-decoration-thickness: 2px;
+      text-underline-offset: 0.2rem;
+      text-decoration-thickness: 0.2rem;
       &:hover {
         color: black;
       }

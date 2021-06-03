@@ -118,9 +118,9 @@ const PostsStyle = styled.section`
   .city-filter {
     display: flex;
     flex-direction: row;
-    padding: 40px;
+    padding: 4rem;
     button {
-      padding: 20px;
+      padding: 2rem;
       font-size: 1rem;
     }
   }
@@ -128,22 +128,21 @@ const PostsStyle = styled.section`
   //individual posts
   .post-div {
     background-color: #fff;
-    padding: 15px;
+    padding: 1.5rem;
     display: block;
     article {
       background-color: #fff;
       padding: 5%;
       min-height: 20%;
-      border-radius: 5px;
+      border-radius: 0.5rem;
       margin-top: 10%;
       display: flex;
-      gap: 10px;
-      border: 2px solid var(--orange-background-color);
+      gap: 1rem;
+      border: 0.2rem solid var(--orange-background-color);
       flex-direction: column;
       justify-content: space-around;
       color: var(--orange-background-color);
-      font-size: 1.3rem;
-      box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 4px 0px;
+      box-shadow: rgba(99, 99, 99, 0.4) 0rem 0.2rem 0.4rem 0rem;
       .pet-info {
         display: flex;
         flex-direction: row;
@@ -151,13 +150,14 @@ const PostsStyle = styled.section`
       }
       a {
         color: #fff;
-        padding: 10px;
+        padding: 1rem;
         text-decoration: none;
-        border-radius: 5px;
+        border-radius: 0.5rem;
         margin: 0 auto;
         margin-top: 5%;
+        font-size: 1.5rem;
         background-color: var(--orange-background-color);
-        box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 2px 0px;
+        box-shadow: rgba(99, 99, 99, 0.4) 0rem 0.2rem 0.2rem 0rem;
       }
       .button-div {
         display: flex;
@@ -165,21 +165,21 @@ const PostsStyle = styled.section`
         button {
           background-color: var(--orange-background-color);
           color: #fff;
-          border-radius: 5px;
+          border-radius: 0.5rem;
           font-weight: bolder;
-          width: 80px;
+          width: 8rem;
           margin-top: 8%;
           margin-bottom: 5%;
           cursor: pointer !important;
         }
       }
       p {
-        padding: 5px;
-        border-radius: 5px;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
         margin-bottom: 2%;
         text-align: center;
-        font-size: 1.6rem;
-        letter-spacing: 5px;
+        font-size: 2.4rem;
+        letter-spacing: 0.5rem;
         font-family: "Patua One", sans-serif;
       }
     }
@@ -190,14 +190,14 @@ const PostsStyle = styled.section`
   button {
     background-color: var(--orange-background-color);
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 5rem;
+    height: 5rem;
     border: none;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    margin: 30px auto;
+    margin: 3rem auto;
     text-decoration: none;
 
     a {
@@ -209,8 +209,8 @@ const PostsStyle = styled.section`
     margin: 0 auto;
     margin-top: 0;
     article {
-      min-height: 350px;
-      width: 300px;
+      min-height: 35rem;
+      width: 30rem;
     }
   }
 `;

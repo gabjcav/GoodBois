@@ -52,14 +52,14 @@ const ProfileStyle = styled.section`
     display: flex;
     flex-direction: column;
     h2 {
-      padding: 10px;
+      padding: 1rem;
       color: var(--orange-background-color);
       font-size: 1.8rem;
       font-family: "Patua One", sans-serif;
     }
     button {
       width: 25%;
-      height: 30px;
+      height: 3rem;
       margin: 0 auto;
       margin-top: 10%;
       background-color: var(--orange-background-color);
@@ -67,7 +67,7 @@ const ProfileStyle = styled.section`
       border: none;
       font-size: 1rem;
       font-weight: bold;
-      border-radius: 5px;
+      border-radius: 0.5rem;
     }
   }
   @media (min-width: 768px) {

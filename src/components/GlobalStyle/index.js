@@ -7,7 +7,10 @@ const GlobalStyle = createGlobalStyle`
         padding: 0; 
         margin: 0; 
         font-family: sans-serif; 
+    }
 
+    html{
+        font-size: 62.5%; 
     }
 
 

@@ -79,12 +79,12 @@ const SendMessageStyle = styled.section`
       max-height: 70vh;
       padding: 10px;
       font-size: 1.5rem;
-      border: 2px solid var(--orange-background-color);
-      border-radius: 15px;
+      border: 0.2rem solid var(--orange-background-color);
+      border-radius: 1.5rem;
     }
 
     button {
-      border-radius: 5px;
+      border-radius: 0.5rem;
       color: black;
       border: none;
       font-weight: bolder;

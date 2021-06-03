@@ -87,38 +87,38 @@ const MessagesStyle = styled.section`
   div {
     background-color: var(--orange-background-color);
     color: white;
-    padding: 10px;
-    min-height: 100px;
-    border-radius: 5px;
+    padding: 1rem;
+    min-height: 10rem;
+    border-radius: 0.5rem;
     font-size: 1.2rem;
-    margin-bottom: 10px;
-    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 3px 0px;
+    margin-bottom: 1rem;
+    box-shadow: rgba(99, 99, 99, 0.4) 0rem 0.2rem 0.3rem 0rem;
 
     p {
-      margin-bottom: 5px;
+      margin-bottom: 0.5rem;
       text-align: left;
       :nth-child(2) {
-        margin-top: 15px;
+        margin-top: 1.5rem;
       }
       :nth-child(3) {
-        margin-top: 15px;
+        margin-top: 1.5rem;
       }
       :nth-child(4) {
         background-color: white;
         color: black;
-        padding: 10px;
-        border-radius: 5px;
+        padding: 1rem;
+        border-radius: 0.5rem;
         text-align: left;
-        box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 2px 0px;
-        margin-bottom: 15px;
+        box-shadow: rgba(99, 99, 99, 0.4) 0rem 0.2rem 0.2rem 0rem;
+        margin-bottom: 1.5rem;
       }
     }
     button {
-      padding: 5px;
-      margin-right: 5px;
+      padding: 0.5rem;
+      margin-right: 0.5rem;
       background-color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 0.5rem;
     }
   }
 

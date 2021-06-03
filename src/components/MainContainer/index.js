@@ -14,16 +14,16 @@ const MainContainer = styled.main`
   h1 {
     background-color: var(--orange-background-color);
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 4.5rem;
     width: 100%;
     position: fixed;
     left: 0;
     top: 0;
-    padding: 10px;
+    padding: 1rem;
     margin-bottom: 10%;
-    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 3px 0px;
+    box-shadow: rgba(99, 99, 99, 0.4) 0rem 0.2rem 0.3rem 0rem;
     font-family: "Patua One", sans-serif;
-    letter-spacing: 2px;
+    letter-spacing: 0.2rem;
     color: white;
   }
 `;
