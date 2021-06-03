@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
     :root {
         --orange-background-color: #fb8250; 
         --orange-light: #fdb79b; 
-        --gray: #6f6f6f;
+        --gray: #333333;
     }
 `;
 

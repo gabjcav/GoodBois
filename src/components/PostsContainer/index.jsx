@@ -32,7 +32,6 @@ const PostsContainer = () => {
   };
 
   const renderPosts = () => {
-    //If there are no posts (or not loaded yet from firebase), render spinner
     return (
       <PostsStyle>
         <div className="post-div">
@@ -44,11 +43,13 @@ const PostsContainer = () => {
             console.log(p);
             return (
               <article key={uuid()}>
-                <p>Animal type: {p.AnimalType}</p>
-                <p>Breed: {p.Breed}</p>
-                <p>Name: {p.Name}</p>
-                <p>Number of days: {p.NumberOfDays}</p>
-                <p>City: {p.City}</p>
+                <p>"{p.Name}"</p>
+                <div className="pet-info">
+                  <p>{p.AnimalType} -</p>
+                  <p>{p.Breed}</p>
+                </div>
+                <p>{p.NumberOfDays} days</p>
+                <p>{p.City}</p>
 
                 <div className="button-div">
                   {/* Show "remove" button if it is your own post */}
@@ -99,6 +100,7 @@ const PostsContainer = () => {
   return (
     <MainContainer>
       <h1>Available pets</h1>
+
       {!posts.length ? renderSpinner() : renderPosts()}
     </MainContainer>
   );
@@ -113,60 +115,72 @@ const PostsStyle = styled.section`
   flex-direction: column;
   max-height: 80%;
 
+  .city-filter {
+    display: flex;
+    flex-direction: row;
+    padding: 40px;
+    button {
+      padding: 20px;
+      font-size: 1rem;
+    }
+  }
+
   //individual posts
   .post-div {
     background-color: #fff;
     padding: 15px;
+    display: block;
     article {
-      background-color: var(--orange-background-color);
+      background-color: #fff;
       padding: 5%;
       min-height: 20%;
       border-radius: 5px;
       margin-top: 10%;
       display: flex;
       gap: 10px;
+      border: 2px solid var(--orange-background-color);
       flex-direction: column;
       justify-content: space-around;
-      color: white;
+      color: var(--orange-background-color);
       font-size: 1.3rem;
       box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 4px 0px;
+      .pet-info {
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+      }
       a {
-        color: var(--gray);
+        color: #fff;
         padding: 10px;
         text-decoration: none;
         border-radius: 5px;
         margin: 0 auto;
         margin-top: 5%;
-        background-color: #fff;
+        background-color: var(--orange-background-color);
         box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 2px 0px;
       }
       .button-div {
         display: flex;
         flex-direction: row;
         button {
-          background-color: #fff;
-          color: var(--gray);
+          background-color: var(--orange-background-color);
+          color: #fff;
+          border-radius: 5px;
+          font-weight: bolder;
+          width: 80px;
+          margin-top: 8%;
+          margin-bottom: 5%;
+          cursor: pointer !important;
         }
       }
       p {
-        background-color: #fff;
         padding: 5px;
         border-radius: 5px;
         margin-bottom: 2%;
         text-align: center;
-        color: var(--gray);
-        box-shadow: rgba(99, 99, 99, 0.4) 0px 0px 3px 0px;
-      }
-
-      //Message & Remove button
-      button {
-        border-radius: 5px;
-        color: white;
-        font-weight: bolder;
-        width: 80px;
-        margin-top: 8%;
-        margin-bottom: 5%;
-        cursor: pointer !important;
+        font-size: 1.6rem;
+        letter-spacing: 5px;
+        font-family: "Patua One", sans-serif;
       }
     }
   }

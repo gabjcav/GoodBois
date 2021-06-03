@@ -34,7 +34,7 @@ const SendMessageContainer = () => {
             onClick={async (e) => {
               e.preventDefault();
               if (!isAuthenticated) {
-                return <p>Sign in to send message</p>;
+                alert("Sign in");
               } else {
                 await firebaseInstance
                   .firestore()
